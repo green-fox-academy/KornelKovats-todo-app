@@ -11,10 +11,7 @@ import { ifError } from "assert";
 export class ToDoList{
   public lines: Item[] = [];
 
-  constructor(){
-    const allText = fs
-    .readFileSync("./files/list-todo.txt", "utf-8")
-    .split("\n");
+  constructor(allText: string[]){
       allText.forEach((value) =>{
         if(value[0]=='*'&&value!=''){
           let newItem = new Item(value.slice(1,value.length-1),true);
@@ -26,18 +23,12 @@ export class ToDoList{
       })
   }
 }
+const allText = fs.readFileSync("./files/list-todo.txt", "utf-8").split("\n");
 
 
+let args = process.argv.slice(2)
 
-try {
-  let myArgs = process.argv.slice(2);
-  console.log(myArgs);
-  printAllUsage(myArgs);
-  checkArguments(myArgs);
-  printAllTask(myArgs);
-  addingNewTask(myArgs);
-  removeTask(myArgs);
-  
-} catch (error) {
-    console.log(error.message);
+if(args.length===0){
+  console.log(printAllUsage());
 }
+
