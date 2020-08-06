@@ -30,7 +30,7 @@
     "typescript": "^3.9.7"
   },
   "bin": {
-    "todo": "./todo.ts"
+    "todo": "./main.ts"
   },
   "description": ""
 }
