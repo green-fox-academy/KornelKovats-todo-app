@@ -1,7 +1,4 @@
-import fs = require("fs");
-import readline = require("readline");
-import { ToDoList } from "./todo";
-import { Item } from "./item";
+import { ToDoList } from "../classes/todoListClass";
 
 export function printAllTask(myArgs:any[]) {
       // print all tasks
