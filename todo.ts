@@ -7,15 +7,14 @@ import { addingNewTask } from "./addingNewTask";
 import { removeTask } from "./removeTask";
 import { Item } from "./item";
 import { ifError } from "assert";
-import { mainModule } from "process";
 
-class ToDoList{
+export class ToDoList{
   public lines: Item[] = [];
 
   constructor(){
     const allText = fs
-      .readFileSync("./files/list-todo.txt", "utf-8")
-      .split("\n");
+    .readFileSync("./files/list-todo.txt", "utf-8")
+    .split("\n");
       allText.forEach((value) =>{
         if(value[0]=='*'&&value!=''){
           let newItem = new Item(value.slice(1,value.length-1),true);
@@ -28,11 +27,6 @@ class ToDoList{
   }
 }
 
-let newLines: ToDoList = new ToDoList();
-
-newLines.lines.forEach((value)=>{
-  
-})
 
 
 try {
