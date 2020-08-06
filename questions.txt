@@ -1,0 +1,3 @@
+// Mark reservation feladataban a taskList fileban talalhato static metodus jo lenne az en Items osztalyomba
+// jo lenne egy fuggvenyt csinalni ami a myArgs array elejet levagja es a 3. elemtol kezdodne
+// jo lenne ugy futattni a metodusokat hogy a mainbe ifbe megnezem a myArgs milyen hosszu
