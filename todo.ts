@@ -26,7 +26,12 @@ if(myArgs[2]=='-l'&&process.argv.length===3){
     }else{
         let index = 1
         rl.on('line',(line)=>{
-            console.log(`${index}. - ${line}`);
+            if(line[0]==='*'){
+                console.log(`${index}. - [x] ${line.slice(1,line.length)}`);
+            }else{
+                console.log(`${index}. - [ ] ${line}`);
+            }
+            
             index++;
         })
     }
@@ -48,8 +53,12 @@ if(myArgs[2]=='-r'&&process.argv.length===4 && parseInt(myArgs[3])>0 &&parseInt(
         }
     })
     let newLines = '';
-    newLinesIthoutGivenLines.forEach((value)=>{
-        return newLines +=value + '\n';
+    newLinesIthoutGivenLines.forEach((value,index,array)=>{
+        if(index==newLinesIthoutGivenLines.length-1){
+            return newLines +=value;
+        }else{
+            return newLines +=value + '\n';
+        }
     })
     fs.writeFileSync('./files/list-todo.txt',newLines,'utf-8');
 }else if(myArgs[2]=='-r'&&process.argv.length===4&& parseInt(myArgs[3])<0){
@@ -60,4 +69,25 @@ if(myArgs[2]=='-r'&&process.argv.length===4 && parseInt(myArgs[3])>0 &&parseInt(
     console.log('Unable to remove: index is not a number');
 }else if(myArgs[2]=='-r'&&process.argv.length===3){
     console.log('Unable to add: no task provided');
+}
+
+// Check task
+
+if(myArgs[2]=='-c'&&process.argv.length===4 && parseInt(myArgs[3])>0 &&parseInt(myArgs[3])<tasksLength){
+    let allLines = fs.readFileSync('./files/list-todo.txt','utf-8').split('\n');
+    let newCheckedLines = allLines.map((value,index)=>{
+        if((index+1)==parseInt(myArgs[3])&&value!=''&&value[0]!='*'){
+            return '*' + value;
+        }else{
+            return value
+        }
+    })
+    let newLines = '';
+    newCheckedLines.forEach((value,index)=>{
+        if(value!=''&&index!=newCheckedLines.length){
+            return newLines +=value +'\n';
+        }
+        
+    })
+    fs.writeFileSync('./files/list-todo.txt',newLines,'utf-8');
 }
