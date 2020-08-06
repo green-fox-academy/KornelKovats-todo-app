@@ -32,3 +32,7 @@ if(args.length===0){
   console.log(printAllUsage());
 }
 
+if(args.length===1&&args[0]=='-l'){
+  console.log(printAllTask(allText));
+}
+

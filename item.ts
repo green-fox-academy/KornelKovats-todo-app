@@ -1,7 +1,7 @@
 export class Item{
-    private thing: string;
+    public thing: string;
 
-    private checked: boolean;
+    public checked: boolean;
 
     constructor(thing:string, checked: boolean){
         this.thing = thing;
