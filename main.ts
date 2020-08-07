@@ -1,5 +1,5 @@
 #! /usr/bin/env ts-node
-import fs = require("fs");
+import fs  from "fs";
 import { printAllUsage } from "./functions/printAllUsage";
 import { printAllTask } from "./functions/printAllTask";
 import { addingNewTask } from "./functions/addingNewTask";
@@ -13,7 +13,7 @@ if(args.length===0){
   console.log(printAllUsage());
 }
 if(args.length===1&&args[0]=='-l'){
-  console.log(printAllTask(allText));
+  printAllTask(allText);
 }
 if(args.length===2&&args[0]=='-a'){
   console.log(addingNewTask(allText,args[1]));
