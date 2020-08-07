@@ -3,7 +3,7 @@ export class Item{
 
     public checked: boolean;
 
-    constructor(thing:string, checked: boolean){
+    constructor(thing:string, checked: boolean=false){
         this.thing = thing;
         this.checked = checked;
     }

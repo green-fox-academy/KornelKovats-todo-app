@@ -32,5 +32,8 @@
   "bin": {
     "todo": "./main.ts"
   },
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "debug": "^4.1.1"
+  }
 }
